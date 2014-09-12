@@ -1,4 +1,6 @@
-package com.dsw.minhasfinancas;
+package com.dsw.minhasFinancas.view;
+
+import com.dsw.minhasfinancas.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

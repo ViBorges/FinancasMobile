@@ -2,8 +2,6 @@ package com.dsw.minhasfinancas;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.widget.EditText;
-import android.widget.ImageView;
 
 public class Login extends FragmentActivity {
 	
@@ -13,8 +11,5 @@ public class Login extends FragmentActivity {
 		setContentView(R.layout.login);
 		
 		//chamando objetos
-		
-		
 	}
-
 }
