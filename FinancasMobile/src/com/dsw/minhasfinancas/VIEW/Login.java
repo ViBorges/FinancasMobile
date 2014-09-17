@@ -1,4 +1,7 @@
-package com.dsw.minhasfinancas;
+package com.dsw.minhasfinancas.VIEW;
+
+import com.dsw.minhasfinancas.R;
+import com.dsw.minhasfinancas.R.layout;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

@@ -1,11 +1,11 @@
-package com.dsw.minhasFinancas.view;
+package com.dsw.minhasfinancas.VIEW;
 
-import com.dsw.minhasfinancas.R;
-
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.dsw.minhasfinancas.R;
 
 public class MainActivity extends ActionBarActivity {
 
