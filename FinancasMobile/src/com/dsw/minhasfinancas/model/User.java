@@ -1,6 +1,6 @@
-package com.dsw.minhasfinancas.MODEL;
+package com.dsw.minhasfinancas.model;
 
-public class Usuario {
+public class User {
 
 	private int id;
 	private String nome;

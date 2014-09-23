@@ -5,7 +5,7 @@
 
     <EditText
         android:id="@+id/emailText"
-        android:hint="@string/usuario"
+        android:hint="@string/user"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/linearLayout1"
@@ -41,6 +41,7 @@
 
         <ImageView
             android:id="@+id/senhaIcon"
+            android:contentDescription="@string/senha"
             android:layout_width="66dp"
             android:layout_height="58dp"
             android:src="@drawable/cadeado" />
@@ -57,20 +58,11 @@
 
         <ImageView
             android:id="@+id/imageView1"
+            android:contentDescription="@string/email"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/business_man_blue" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/loginButton"
-        android:layout_below="@+id/loginButton"
-        android:layout_marginTop="8dp"
-        android:text="ou cadastra-se"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -84,6 +76,7 @@
 
         <ImageView
             android:id="@+id/emailIcon"
+            android:contentDescription="@string/email"
             android:layout_width="66dp"
             android:layout_height="58dp"
             android:src="@drawable/carta_email" />
@@ -98,6 +91,15 @@
         android:layout_below="@+id/senhaText"
         android:layout_marginTop="45dp"
         android:background="@drawable/login_button"
-        android:text="Login" />
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/ouCadastreSeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_below="@+id/loginButton"
+        android:background="@drawable/transparent_btn"
+        android:text="@string/ou_cadastre_se" />
 
 </RelativeLayout>

@@ -5,7 +5,7 @@
 
     <EditText
         android:id="@+id/emailText2"
-        android:hint="@string/usuario"
+        android:hint="@string/user"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/linearLayout1"
