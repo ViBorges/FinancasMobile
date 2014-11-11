@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dsw.financasmobile.R;
 import com.dsw.financasmobile.dao.UserDAO;
 import com.dsw.financasmobile.model.User;
-import com.dsw.minhasfinancas.R;
 
 public class RegisterActivity extends FragmentActivity {
 
@@ -49,8 +49,9 @@ public class RegisterActivity extends FragmentActivity {
 				} else {
 					if (user.getPassword().equals(user.getConfirmPassword())) {
 
-						dataBase.addUser(user);
-						dataBase.onDestroy();
+						dataBase.open();
+						dataBase.insertUserData(user);
+						dataBase.close();
 
 						Toast.makeText(RegisterActivity.this,
 								"Cadastro efetuado com sucesso!",

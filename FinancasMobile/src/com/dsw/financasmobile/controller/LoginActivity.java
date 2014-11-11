@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.dsw.minhasfinancas.R;
+import com.dsw.financasmobile.R;
 
 public class LoginActivity extends FragmentActivity {
 
