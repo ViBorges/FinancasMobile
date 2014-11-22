@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/nameText"
         android:hint="@string/user"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -18,12 +18,12 @@
     </EditText>
 
     <EditText
-        android:id="@+id/senhaText"
+        android:id="@+id/passwordText"
         android:hint="@string/senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/linearLayout2"
-        android:layout_alignRight="@+id/emailText"
+        android:layout_alignRight="@+id/nameText"
         android:layout_alignTop="@+id/linearLayout2"
         android:layout_toRightOf="@+id/linearLayout2"
         android:background="@drawable/form_cadeado"
@@ -87,19 +87,21 @@
         android:layout_width="282dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_alignRight="@+id/senhaText"
-        android:layout_below="@+id/senhaText"
+        android:layout_alignRight="@+id/passwordText"
+        android:layout_below="@+id/passwordText"
         android:layout_marginTop="45dp"
         android:background="@drawable/login_button"
         android:text="@string/login" />
 
     <Button
         android:id="@+id/ouCadastreSeButton"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignRight="@+id/loginButton"
         android:layout_below="@+id/loginButton"
-        android:background="@drawable/transparent_btn"
-        android:text="@string/ou_cadastre_se" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_button"
+        android:text="@string/cadastre_se" />
 
 </RelativeLayout>

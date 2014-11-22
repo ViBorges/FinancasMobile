@@ -1,4 +1,4 @@
-package com.dsw.financasmobile.dao;
+package com.dsw.financasmobile.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -53,10 +53,9 @@ public class UserDAO {
 		values.put(TableFinancasMobileData.COLUMN_CONFIRMPASSWORD, user.getConfirmPassword());
 
 		bd.insert(TableFinancasMobileData.TABLE_USER_DATA, null, values);
-		Log.d("debug", "Aluno cadastrado");
 	}
 	
-	public User readExerciseData(String name) throws SQLException {
+	public User readUserData(String name) throws SQLException {
 
 		if (bd == null) {
 			Log.e(TAG, "reading from null db!! aborting...");
@@ -82,7 +81,16 @@ public class UserDAO {
 		return new User(name, password, confirmPassword);
 	}
 	
-	public void onDestroy() {
-		bd.close();
+	public boolean Login(String name, String password) throws SQLException {
+		Cursor mCursor = bd.rawQuery("SELECT * FROM " + TableFinancasMobileData.TABLE_USER_DATA + " WHERE name=? AND password=?", new String[]{name, password});
+		
+		if (mCursor != null) {
+			if(mCursor.getCount() > 0) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
+
 }

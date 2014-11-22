@@ -11,6 +11,6 @@
     <string name="senha">Senha</string>
     <string name="user">Nome de Usuário</string>
     <string name="login">Login</string>
-    <string name="ou_cadastre_se">ou cadastre-se</string>
+    <string name="cadastre_se">Cadastre-se</string>
 
 </resources>

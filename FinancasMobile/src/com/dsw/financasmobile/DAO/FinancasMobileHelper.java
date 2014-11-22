@@ -1,4 +1,4 @@
-package com.dsw.financasmobile.dao;
+package com.dsw.financasmobile.DAO;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,12 +15,16 @@ public class FinancasMobileHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL(TableFinancasMobileData.CREATE_SCRIPT);
+		db.execSQL(TableFinancasMobileData.CREATE_USER_SCRIPT);
+		db.execSQL(TableFinancasMobileData.CREATE_SPENT_SCRIPT);
+		db.execSQL(TableFinancasMobileData.CREATE_RECEIPT_SCRIPT);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL(TableFinancasMobileData.DROP_SCRIPT);
+		db.execSQL(TableFinancasMobileData.DROP_USER_SCRIPT);
+		db.execSQL(TableFinancasMobileData.DROP_SPENT_SCRIPT);
+		db.execSQL(TableFinancasMobileData.DROP_RECEIPT_SCRIPT);
 		onCreate(db);
 	}
 

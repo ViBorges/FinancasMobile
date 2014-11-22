@@ -2,6 +2,7 @@ package com.dsw.financasmobile.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -9,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dsw.financasmobile.R;
-import com.dsw.financasmobile.dao.UserDAO;
+import com.dsw.financasmobile.DAO.UserDAO;
 import com.dsw.financasmobile.model.User;
 
 public class RegisterActivity extends FragmentActivity {
@@ -19,8 +20,7 @@ public class RegisterActivity extends FragmentActivity {
 	private EditText userConfirmPassword;
 	private Button registerBotton;
 
-	User user = new User();
-	UserDAO dataBase = new UserDAO(RegisterActivity.this);
+	UserDAO userDAO = new UserDAO(RegisterActivity.this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,11 @@ public class RegisterActivity extends FragmentActivity {
 
 			public void onClick(View view) {
 
-				user.setName(userName.getText().toString());
-				user.setPassword(userPassword.getText().toString());
-				user.setConfirmPassword(userConfirmPassword.getText().toString());
+				String name = userName.getText().toString();
+				String password = userPassword.getText().toString();
+				String confirmPassword = userConfirmPassword.getText().toString();
+				
+				User user = new User(name, password, confirmPassword);
 
 				if (user.getName().isEmpty() || user.getPassword().isEmpty()
 						|| user.getConfirmPassword().isEmpty()) {
@@ -49,15 +51,13 @@ public class RegisterActivity extends FragmentActivity {
 				} else {
 					if (user.getPassword().equals(user.getConfirmPassword())) {
 
-						dataBase.open();
-						dataBase.insertUserData(user);
-						dataBase.close();
-
+						UserDAO.getInstance(RegisterActivity.this).open();
+						UserDAO.getInstance(RegisterActivity.this).insertUserData(user);
+						UserDAO.getInstance(RegisterActivity.this).close();
+						
 						Toast.makeText(RegisterActivity.this,
 								"Cadastro efetuado com sucesso!",
 								Toast.LENGTH_SHORT).show();
-
-						finish();
 					} else {
 						Toast.makeText(
 								RegisterActivity.this,
