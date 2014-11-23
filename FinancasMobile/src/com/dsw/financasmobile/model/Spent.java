@@ -6,17 +6,17 @@ public class Spent extends Exception{
 	private String name;
 	private String description;
 	private float value;
-	private String spentDate;
+	private int spentDate;
 	private String category;
 	
 	
-	public Spent(String name, String description, float value, String spentDate,
+	public Spent(String name, String description, float value, int spentDate2,
 			String category) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.value = value;
-		this.spentDate = spentDate;
+		this.spentDate = spentDate2;
 		this.category = category;
 	}
 
@@ -65,13 +65,13 @@ public class Spent extends Exception{
        
 	}
 
-	public String getSpentDate() {
+	public int getSpentDate() {
 		return spentDate;
 	}
 
-	public void setSpentDate(String spentDate)throws IllegalArgumentException {
+	public void setSpentDate(int spentDate)throws IllegalArgumentException {
 	    
-        if (spentDate != null) {
+        if (spentDate != 0) {
         	this.spentDate = spentDate;
             
         } else {
