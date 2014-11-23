@@ -1,6 +1,6 @@
 package com.dsw.financasmobile.controller;
 
-import android.R;
+import com.dsw.financasmobile.R;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,37 +18,34 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		
 	}
-	
-public void yearDialog() {
-		
-		
 
-		final Dialog d = new Dialog(MainActivity.this);
-		d.setTitle("Selecione o Ano");
-		d.setContentView(R.layout.year_selector);
-		final NumberPicker np = (NumberPicker) d
+	public void yearDialog() {
+
+		final Dialog dialog = new Dialog(MainActivity.this);
+		
+		dialog.setTitle("Selecione o Ano");
+		dialog.setContentView(R.layout.year_selector);
+		
+		final NumberPicker numberPicker = (NumberPicker) dialog
 				.findViewById(R.id.numberPicker);
-		np.setMaxValue(2020);
-		np.setMinValue(2012);
-		np.setWrapSelectorWheel(false);
 		
-		
-		
-		Button cancelBtn = (Button) d.findViewById(R.id.cancelButton);
-		Button setBtn = (Button) d.findViewById(R.id.setButton);
-		
+		numberPicker.setMaxValue(2020);
+		numberPicker.setMinValue(2012);
+		numberPicker.setWrapSelectorWheel(false);
+
+		Button cancelBtn = (Button) dialog.findViewById(R.id.cancelButton);
+		Button setBtn = (Button) dialog.findViewById(R.id.setButton);
+
 		setBtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				
 				TextView tv = (TextView) findViewById(R.id.hello);
-				tv.setText(String.valueOf(np.getValue()));
-				d.dismiss();
 				
+				tv.setText(String.valueOf(numberPicker.getValue()));
+				
+				dialog.dismiss();
 			}
 		});
 
@@ -56,16 +53,12 @@ public void yearDialog() {
 
 			@Override
 			public void onClick(View v) {
-
-				d.dismiss();
-
+				dialog.dismiss();
 			}
 		});
 
-		d.show();
-
+		dialog.show();
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,10 +73,9 @@ public void yearDialog() {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_new) {
-			
 			yearDialog();
-			
 		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 }
