@@ -3,6 +3,7 @@ package com.dsw.financasmobile.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import com.dsw.financasmobile.R;
 import com.dsw.financasmobile.DAO.UserDAO;
 import com.dsw.financasmobile.model.User;
 
-public class LoginActivity extends FragmentActivity {
+public class LoginActivity extends ActionBarActivity {
 	
 	private EditText nameText;
 	private EditText passwordText;
@@ -63,10 +64,13 @@ public class LoginActivity extends FragmentActivity {
 								"Login efetuado com sucesso!", Toast.LENGTH_LONG)
 								.show();
 						startActivity(new Intent(LoginActivity.this, MainActivity.class));
+						finish();
 					} else 
 						Toast.makeText(LoginActivity.this,
 								"Usuário não cadastrado, por favor, realize o cadastro!", Toast.LENGTH_LONG)
 								.show();
+					nameText.setText("");
+					passwordText.setText("");
 				}				
 			}
 		});

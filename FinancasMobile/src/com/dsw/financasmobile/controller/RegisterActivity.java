@@ -2,6 +2,7 @@ package com.dsw.financasmobile.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,7 +14,7 @@ import com.dsw.financasmobile.R;
 import com.dsw.financasmobile.DAO.UserDAO;
 import com.dsw.financasmobile.model.User;
 
-public class RegisterActivity extends FragmentActivity {
+public class RegisterActivity extends ActionBarActivity {
 
 	private EditText userName;
 	private EditText userPassword;
@@ -58,6 +59,7 @@ public class RegisterActivity extends FragmentActivity {
 						Toast.makeText(RegisterActivity.this,
 								"Cadastro efetuado com sucesso!",
 								Toast.LENGTH_SHORT).show();
+						finish();
 					} else {
 						Toast.makeText(
 								RegisterActivity.this,
