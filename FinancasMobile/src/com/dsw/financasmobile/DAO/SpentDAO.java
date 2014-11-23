@@ -14,7 +14,7 @@ import com.dsw.financasmobile.model.Spent;
 
 public class SpentDAO {
 
-	private SQLiteDatabase bd;
+	private SQLiteDatabase dataBase;
 
 	private static SpentDAO instance;
 	private FinancasMobileHelper helper;
@@ -37,41 +37,42 @@ public class SpentDAO {
 	}
 
 	public void open() throws SQLException {
-		bd = helper.getWritableDatabase();
+		dataBase = helper.getWritableDatabase();
 	}
 	
 	public void close() throws SQLException {
-		bd.close();
+		dataBase.close();
 	}
 
 	public void insertSpentData(Spent spent) throws SQLException {
 
-		if (bd == null) {
+		if (dataBase == null) {
 			Log.e(TAG, "inserting with null db!! aborting...");
 			return;
 		}
 
 		ContentValues values = new ContentValues();
 
+		
 		values.put(TableFinancasMobileData.COLUMN_SPENT_NAME, spent.getName());
 		values.put(TableFinancasMobileData.COLUMN_SPENT_DESCRIPTION, spent.getDescription());
 		values.put(TableFinancasMobileData.COLUMN_SPENT_VALUE, spent.getValue());
 		values.put(TableFinancasMobileData.COLUMN_SPENT_DATE, spent.getSpentDate());
 		values.put(TableFinancasMobileData.COLUMN_SPENT_CATEGORY, spent.getCategory());
 
-		bd.insert(TableFinancasMobileData.TABLE_SPENT_DATA, null, values);
+		dataBase.insert(TableFinancasMobileData.TABLE_SPENT_DATA, null, values);
 	}
 	
 	public List<Spent> readAllSpents() {
 
 		List<Spent> spentDataList = new ArrayList<Spent>();
 
-		if (bd == null) {
+		if (dataBase == null) {
 			Log.e(TAG, "reading from null db!! aborting...");
 			return null;
 		}
 
-		Cursor cursor = bd.query(TableFinancasMobileData.TABLE_SPENT_DATA, allColumns, null, null, null, null, null);
+		Cursor cursor = dataBase.query(TableFinancasMobileData.TABLE_SPENT_DATA, allColumns, null, null, null, null, null);
 
 		if (cursor.moveToFirst()) {
 			Spent spentData = cursorToSpentData(cursor);
@@ -91,7 +92,7 @@ public class SpentDAO {
 		String name= cursor.getString(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_NAME));
 		String description = cursor.getString(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_DESCRIPTION));
 		float value = cursor.getFloat(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_VALUE));
-		int spentDate = cursor.getInt(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_DATE));
+		String spentDate = cursor.getString(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_DATE));
 		String category = cursor.getString(cursor.getColumnIndex(TableFinancasMobileData.COLUMN_SPENT_CATEGORY));
 		return new Spent(name, description, value, spentDate, category);
 

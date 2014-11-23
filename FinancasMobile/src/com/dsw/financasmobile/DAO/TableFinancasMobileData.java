@@ -29,14 +29,14 @@ public class TableFinancasMobileData {
 			+ COLUMN_SPENT_NAME + " STRING PRIMARY KEY" + ", " 
 			+ COLUMN_SPENT_DESCRIPTION + " STRING" + ", " 
 			+ COLUMN_SPENT_VALUE + " FLOAT" + ", "
-			+ COLUMN_SPENT_DATE + " INTEGER" + ", "
+			+ COLUMN_SPENT_DATE + " STRING" + ", "
 			+ COLUMN_SPENT_CATEGORY + " STRING" + ");";
 	
 	public static final String CREATE_RECEIPT_SCRIPT ="create table " + TABLE_RECEIPT_DATA + "(" 
 			+ COLUMN_NAME + " STRING PRIMARY KEY" + ", " 
 			+ COLUMN_RECEIPT_DESCRIPTION + " STRING" + ", " 
 			+ COLUMN_RECEIPT_VALUE + " FLOAT" + ", "
-			+ COLUMN_RECEIPT_DATE + " INTEGER" + ", "
+			+ COLUMN_RECEIPT_DATE + " STRING" + ", "
 			+ COLUMN_RECEIPT_CATEGORY + " STRING" + ");";
 	
 	public static final String DROP_USER_SCRIPT= "DROP TABLE "+TABLE_USER_DATA+";";

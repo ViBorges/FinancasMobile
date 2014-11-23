@@ -1,19 +1,19 @@
 package com.dsw.financasmobile.model;
 
-public class Spent {
-	
+public class Receipt {
+
 	private String name;
 	private String description;
 	private float value;
-	private String spentDate;
+	private String receiptDate;
 	private String category;
 	
-	public Spent(String name, String description, float value, String spentDate,
+	public Receipt(String name, String description, float value, String receiptDate,
 			String category) {
 		this.name = name;
 		this.description = description;
 		this.value = value;
-		this.spentDate = spentDate;
+		this.receiptDate = receiptDate;
 		this.category = category;
 	}
 
@@ -41,12 +41,12 @@ public class Spent {
 		this.value = value;
 	}
 
-	public String getSpentDate() {
-		return spentDate;
+	public String getReceiptDate() {
+		return receiptDate;
 	}
 
-	public void setSpentDate(String spentDate) {
-		this.spentDate = spentDate;
+	public void setReceiptDate(String spentDate) {
+		this.receiptDate = spentDate;
 	}
 
 	public String getCategory() {
@@ -60,8 +60,7 @@ public class Spent {
 	@Override
 	public String toString() {
 		return "Spent [name=" + name + ", description=" + description
-				+ ", value=" + value + ", spentDate=" + spentDate
+				+ ", value=" + value + ", spentDate=" + receiptDate
 				+ ", category=" + category + "]";
 	}
-	
 }
