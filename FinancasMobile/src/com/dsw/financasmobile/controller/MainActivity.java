@@ -22,18 +22,6 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		//generate list
-	    ArrayList<String> list = new ArrayList<String>();
-	    list.add("item1");
-	    list.add("item2");
-
-	    //instantiate custom adapter
-	    YearCustomAdapter adapter = new YearCustomAdapter(list, this);
-
-	    //handle listview and assign adapter
-	    ListView lView = (ListView)findViewById(R.id.listview);
-	    lView.setAdapter(adapter);
 	}
 
 	public void yearDialog() {
@@ -53,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
 		Button cancelBtn = (Button) dialog.findViewById(R.id.cancelButton);
 		Button setBtn = (Button) dialog.findViewById(R.id.setButton);
 
+		//final ArrayList<String> list = new ArrayList<String>();
+		
 		setBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -62,6 +52,15 @@ public class MainActivity extends ActionBarActivity {
 				tv.setText(String.valueOf(numberPicker.getValue()));
 				
 				dialog.dismiss();
+			    
+//			    list.add(numberPicker.getValue());
+//
+//			    //instantiate custom adapter
+//			    YearCustomAdapter adapter = new YearCustomAdapter(list, this);
+//
+//			    //handle listview and assign adapter
+//			    ListView lView = (ListView)findViewById(R.id.listview);
+//			    lView.setAdapter(adapter);
 			}
 		});
 

@@ -69,8 +69,7 @@ public class YearCustomAdapter extends BaseAdapter implements ListAdapter {
 	    editBtn.setOnClickListener(new View.OnClickListener(){
 	        @Override
 	        public void onClick(View view) { 
-	            //do something
-	            notifyDataSetChanged();
+	            
 	        }
 	    });
 
