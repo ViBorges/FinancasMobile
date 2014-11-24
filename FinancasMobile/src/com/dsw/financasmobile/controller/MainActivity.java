@@ -1,6 +1,7 @@
 package com.dsw.financasmobile.controller;
 
-import com.dsw.financasmobile.R;
+import java.util.ArrayList;
+
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,8 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+
+import com.dsw.financasmobile.R;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,6 +22,18 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		//generate list
+	    ArrayList<String> list = new ArrayList<String>();
+	    list.add("item1");
+	    list.add("item2");
+
+	    //instantiate custom adapter
+	    YearCustomAdapter adapter = new YearCustomAdapter(list, this);
+
+	    //handle listview and assign adapter
+	    ListView lView = (ListView)findViewById(R.id.listview);
+	    lView.setAdapter(adapter);
 	}
 
 	public void yearDialog() {
@@ -25,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
 		final Dialog dialog = new Dialog(MainActivity.this);
 		
 		dialog.setTitle("Selecione o Ano");
-		dialog.setContentView(R.layout.year_selector);
+		dialog.setContentView(R.layout.year_dialog);
 		
 		final NumberPicker numberPicker = (NumberPicker) dialog
 				.findViewById(R.id.numberPicker);

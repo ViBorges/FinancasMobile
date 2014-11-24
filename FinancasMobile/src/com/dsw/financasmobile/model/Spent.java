@@ -6,11 +6,11 @@ public class Spent extends Exception{
 	private String name;
 	private String description;
 	private float value;
-	private int spentDate;
+	private String spentDate;
 	private String category;
 	
 	
-	public Spent(String name, String description, float value, int spentDate,
+	public Spent(String name, String description, float value, String spentDate,
 			String category) {
 		super();
 		this.name = name;
@@ -30,7 +30,7 @@ public class Spent extends Exception{
         	this.name = name;
             
         } else {
-            throw new IllegalArgumentException("Gasto não pode ter nome vazio ou nulo.");
+            throw new IllegalArgumentException("Gasto nao pode ter nome vazio ou nulo.");
         }
         
 	}
@@ -45,7 +45,7 @@ public class Spent extends Exception{
         	this.description = description;
             
         } else {
-            throw new IllegalArgumentException("Gasto não pode ter descrição vazia ou nula.");
+            throw new IllegalArgumentException("Gasto nao pode ter descricao vazia ou nula.");
         }
         
 	}
@@ -60,22 +60,22 @@ public class Spent extends Exception{
         	this.value = value;
             
         } else {
-            throw new IllegalArgumentException("Gasto não pode ter valor vazio ou nulo.");
+            throw new IllegalArgumentException("Gasto nao pode ter valor vazio ou nulo.");
         }
        
 	}
 
-	public int getSpentDate() {
+	public String getSpentDate() {
 		return spentDate;
 	}
 
-	public void setSpentDate(int spentDate)throws IllegalArgumentException {
+	public void setSpentDate(String spentDate)throws IllegalArgumentException {
 	    
-        if (spentDate != 0) {
+		if (spentDate != null || !spentDate.equals("")) {
         	this.spentDate = spentDate;
             
         } else {
-            throw new IllegalArgumentException("Gasto não pode ter data vazio ou nulo.");
+            throw new IllegalArgumentException("Gasto nao pode ter valor vazio ou nulo.");
         } 
 	}
 
@@ -89,7 +89,7 @@ public class Spent extends Exception{
         	this.category = category;
             
         } else {
-            throw new IllegalArgumentException("Gasto não pode ter valor vazio ou nulo.");
+            throw new IllegalArgumentException("Gasto nao pode ter valor vazio ou nulo.");
         } 
 	}
 
