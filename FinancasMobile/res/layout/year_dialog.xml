@@ -3,33 +3,139 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <NumberPicker
-        android:id="@+id/numberPicker"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameDataText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/nameDataText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/nameData"
+        android:ems="10"
+        android:inputType="text" >
+        <requestFocus />
+    </EditText>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/nameData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker"
+        android:layout_alignBaseline="@+id/nameDataText"
+        android:layout_alignBottom="@+id/nameDataText"
+        android:layout_alignParentLeft="true"
+        android:text="@string/name"
+        android:textSize="15sp" />
+<!--
+    <Button
+        android:id="@+id/setButton"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#80CBC4"
+        android:text="@string/set" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#EF9A9A"
+        android:text="@string/cancel" />
+
+    <TextView
+        android:id="@+id/yearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/nameData"
+        android:layout_below="@+id/linearLayout1"
+        android:text="@string/year"
+        android:textSize="15sp" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameData"
+        android:layout_toRightOf="@+id/yearText" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/numberPickerMonth"
+        android:layout_below="@+id/numberPickerMonth" />
+
+    <EditText
+        android:id="@+id/valueData"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/numberPickerYear"
+        android:layout_alignTop="@+id/categoryText"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/valueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/valueData"
+        android:layout_alignBottom="@+id/valueData"
+        android:layout_toLeftOf="@+id/valueData"
+        android:text="@string/value"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/numberPickerCategory"
+        android:layout_alignLeft="@+id/valueText"
+        android:text="@string/description"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/descriptionData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberPickerCategory"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp" >
+        android:ems="10"
+        android:inputType="textMultiLine" />
 
-        <Button
-            android:id="@+id/setButton"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:background="#80CBC4"
-            android:text="@string/set" />
+    <NumberPicker
+        android:id="@+id/numberPickerMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignTop="@+id/numberPickerYear" />
 
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:background="#EF9A9A"
-            android:text="@string/cancel" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/monthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/numberPickerMonth"
+        android:text="@string/month"
+        android:textSize="15sp" />
 
+    <TextView
+        android:id="@+id/categoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/monthText"
+        android:layout_alignTop="@+id/numberPickerCategory"
+        android:layout_marginTop="16dp"
+        android:text="@string/category"
+        android:textSize="15sp" />
+-->
 </RelativeLayout>

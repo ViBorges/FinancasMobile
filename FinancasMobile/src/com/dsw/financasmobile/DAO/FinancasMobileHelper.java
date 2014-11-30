@@ -16,15 +16,13 @@ public class FinancasMobileHelper extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase dataBase) {
 		dataBase.execSQL(TableFinancasMobileData.CREATE_USER_SCRIPT);
-		dataBase.execSQL(TableFinancasMobileData.CREATE_SPENT_SCRIPT);
-		dataBase.execSQL(TableFinancasMobileData.CREATE_RECEIPT_SCRIPT);
+		dataBase.execSQL(TableFinancasMobileData.DROP_DATA_SCRIPT);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase dataBase, int oldVersion, int newVersion) {
 		dataBase.execSQL(TableFinancasMobileData.DROP_USER_SCRIPT);
-		dataBase.execSQL(TableFinancasMobileData.DROP_SPENT_SCRIPT);
-		dataBase.execSQL(TableFinancasMobileData.DROP_RECEIPT_SCRIPT);
+		dataBase.execSQL(TableFinancasMobileData.DROP_DATA_SCRIPT);
 		onCreate(dataBase);
 	}
 

@@ -1,6 +1,6 @@
 package com.dsw.financasmobile.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,71 +8,71 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dsw.financasmobile.R;
+import com.dsw.financasmobile.model.Data;
 
-public class YearCustomAdapter extends BaseAdapter implements ListAdapter {
+public class YearCustomAdapter extends BaseAdapter {
 
-	private ArrayList<String> list = new ArrayList<String>(); 
-	private Context context; 
+	private Context context;
+	private List<Data> list;
 	
-	public YearCustomAdapter(ArrayList<String> list, Context context) {
-		this.list = list;
+	public YearCustomAdapter(Context context, List<Data> list){
 		this.context = context;
+		this.list = list;
 	}
 	
 	@Override
-	public int getCount() { 
-	    return list.size(); 
-	} 
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return list.size();
+	}
 
 	@Override
-	public Object getItem(int pos) { 
-	    return list.get(pos); 
-	} 
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return list.get(arg0);
+	}
 
 	@Override
-	public long getItemId(int pos) { 
-	    return 0;
-	    //just return 0 if your list items do not have an Id variable.
-	} 
-	
+	public long getItemId(int arg0) {
+		// TODO Auto-generated method stub
+		return arg0;
+	}
+
 	@Override
-	public View getView(final int position, View convertView, ViewGroup parent) {
-	    
-		View view = convertView;
-	    
-		if (view == null) {
-	        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
-	        view = inflater.inflate(R.layout.year_list, null);
-	    } 
-
-	    //Handle TextView and display string from your list
-	    TextView listItemText = (TextView)view.findViewById(R.id.year); 
-	    listItemText.setText(list.get(position)); 
-
-	    //Handle buttons and add onClickListeners
-	    Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
-	    Button editBtn = (Button)view.findViewById(R.id.edit_btn);
-
-	    deleteBtn.setOnClickListener(new View.OnClickListener(){
-	        @Override
-	        public void onClick(View view) { 
-	            //do something
-	            list.remove(position); //or some other task
-	            notifyDataSetChanged();
-	        }
-	    });
-	    
-	    editBtn.setOnClickListener(new View.OnClickListener(){
-	        @Override
-	        public void onClick(View view) { 
-	            
-	        }
-	    });
-
-	    return view; 
+	public View getView(int position, View view, ViewGroup viewGroup) {
+		
+		YearActivity yearActivity = new YearActivity();
+		
+		if(view==null) {
+			LayoutInflater inflater = (LayoutInflater) yearActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			view = inflater.inflate(R.layout.year_list_view_row_item, viewGroup, false);
+		}
+		
+		
+		TextView tv = (TextView) view.findViewById(R.id.year);
+		tv.setText(list.get(position).getYear());
+		
+		
+		Button editButton = (Button) view.findViewById(R.id.edit);
+		editButton.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(view.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		Button deleteButton = (Button) view.findViewById(R.id.delete);
+		deleteButton.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View view) {
+				Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		return view;
 	}
 }

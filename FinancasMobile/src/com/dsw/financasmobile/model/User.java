@@ -1,6 +1,6 @@
 package com.dsw.financasmobile.model;
 
-
+@SuppressWarnings("serial")
 public class User extends Exception{
 
 	private String name;
@@ -43,7 +43,7 @@ public class User extends Exception{
         	this.name = name;
             
         } else {
-            throw new IllegalArgumentException("Pessoa não pode ter nome vazio ou nulo.");
+            throw new IllegalArgumentException("Pessoa nï¿½o pode ter nome vazio ou nulo.");
             
         }
     
@@ -59,7 +59,7 @@ public class User extends Exception{
         	this.password = password;
             
         } else {
-            throw new IllegalArgumentException("Pessoa não pode ter senha vazia ou nula.");
+            throw new IllegalArgumentException("Pessoa nï¿½o pode ter senha vazia ou nula.");
             
         }
     
