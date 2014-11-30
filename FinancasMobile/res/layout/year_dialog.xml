@@ -16,13 +16,14 @@
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome:"
+            android:text="@string/name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/nameText"
             android:layout_width="217dp"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:inputType="text" >
 
             <requestFocus />
         </EditText>
@@ -60,7 +61,7 @@
             android:id="@+id/valueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor:"
+            android:text="@string/value"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -77,11 +78,11 @@
         android:layout_alignLeft="@+id/linearLayout4"
         android:layout_below="@+id/linearLayout4"
         android:layout_marginTop="16dp"
-        android:text="Descrição:"
+        android:text="@string/description"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/descriptionTextView"
@@ -101,14 +102,14 @@
             android:id="@+id/setButton"
             android:layout_width="153dp"
             android:layout_height="wrap_content"
-            android:background="#80CBC4"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/set" />
 
         <Button
             android:id="@+id/cancelButton"
             android:layout_width="153dp"
             android:layout_height="wrap_content"
-            android:background="#EF9A9A"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/cancel" />
     </LinearLayout>
 
@@ -119,7 +120,7 @@
         android:layout_alignLeft="@+id/linearLayout1"
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="14dp"
-        android:text="Ano/Mês"
+        android:text="@string/yearAndMonth"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
@@ -131,29 +132,20 @@
         android:layout_marginTop="15dp"
         android:orientation="vertical" >
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
+        <RadioButton
+            android:id="@+id/spentRadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/receipt"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <RadioButton
-                android:id="@+id/spentRadioButton"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Ganho" />
-
-            <RadioButton
-                android:id="@+id/earnRadioButton"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gasto" />
-
-            
-        </RadioGroup>
-
+        <RadioButton
+            android:id="@+id/earnRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spent"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
 </RelativeLayout>

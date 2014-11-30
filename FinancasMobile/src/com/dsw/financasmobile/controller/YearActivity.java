@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.dsw.financasmobile.R;
 import com.dsw.financasmobile.DAO.DataDAO;
@@ -26,8 +28,8 @@ public class YearActivity extends Activity {
 	EditText name;
 	EditText value;
 	EditText description;
-	Button cancelBtn;
-	Button setBtn;
+	Button cancelBotton;
+	Button setBotton;
 
 
 	@Override
@@ -42,16 +44,19 @@ public class YearActivity extends Activity {
 
 		dialog.setTitle("Faça o Cadastro");
 		dialog.setContentView(R.layout.year_dialog);
-
-		/*final NumberPicker numberPickerYear = (NumberPicker) dialog
-				.findViewById(R.id.numberPickerYear);
+		
+		cancelBotton = (Button) dialog.findViewById(R.id.cancelButton);
+		setBotton = (Button) dialog.findViewById(R.id.setButton);
+		
+		final NumberPicker numberPickerYear = (NumberPicker) dialog
+				.findViewById(R.id.yearPicker);
 
 		numberPickerYear.setMaxValue(2020);
 		numberPickerYear.setMinValue(2012);
 		numberPickerYear.setWrapSelectorWheel(false);
 
 		final NumberPicker numberPickerMonth = (NumberPicker) dialog
-				.findViewById(R.id.numberPickerMonth);
+				.findViewById(R.id.monthPicker);
 
 		numberPickerMonth.setMaxValue(11);
 		numberPickerMonth.setMinValue(0);
@@ -59,31 +64,23 @@ public class YearActivity extends Activity {
 				"Fervereiro", "Março", "Abril", "Maio", "Junho", "Julho",
 				"Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"});
 
-		final NumberPicker numberPickerCategory = (NumberPicker) dialog
-				.findViewById(R.id.numberPickerCategory);
-
-		numberPickerCategory.setMaxValue(1);
-		numberPickerCategory.setMinValue(0);
-		numberPickerCategory.setDisplayedValues(new String [] {"Gasto", "Ganho"});
-*/
-		name = (EditText) dialog.findViewById(R.id.nameDataText);
-		//value = (EditText) dialog.findViewById(R.id.valueData);
-		//description = (EditText) dialog.findViewById(R.id.descriptionData);
-		//cancelBtn = (Button) dialog.findViewById(R.id.cancelButton);
-		//setBtn = (Button) dialog.findViewById(R.id.setButton);
-
-		// final ArrayList<String> list = new ArrayList<String>();
-
-		setBtn.setOnClickListener(new OnClickListener() {
+//		int radioSelected = yearAndMonth.getCheckedRadioButtonId();
+//		final RadioButton radioButton = (RadioButton) dialog.findViewById(radioSelected);
+		
+		name = (EditText) dialog.findViewById(R.id.nameText);
+		value = (EditText) dialog.findViewById(R.id.valueText);
+		description = (EditText) dialog.findViewById(R.id.descriptionText);
+		
+		String yearData = String.valueOf(numberPickerYear.getValue());
+		String mothData = String.valueOf(numberPickerMonth.getValue());
+//		String categoryData = (String) radioButton.getText();
+		Float valueData = Float.valueOf(value.getText().toString());
+		String descriptionData = String.valueOf(value.getText().toString());
+		
+		setBotton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				//String yearData = String.valueOf(numberPickerYear.getValue());
-				//String mothData = String.valueOf(numberPickerMonth.getValue());
-				//String categoryData = String.valueOf(numberPickerCategory.getValue());
-				//Float valueData = Float.valueOf(value.getText().toString());
-				//String descriptionData = String.valueOf(value.getText().toString());
-				
 				
 				Data data = new Data();
 				//data.setYear(yearData);
@@ -109,7 +106,7 @@ public class YearActivity extends Activity {
 			}
 		});
 
-		cancelBtn.setOnClickListener(new OnClickListener() {
+		cancelBotton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

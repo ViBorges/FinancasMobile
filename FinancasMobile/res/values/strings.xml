@@ -17,11 +17,12 @@
     <string name="edit">Editar</string>
     <string name="delete">Deletar</string>
     <string name="novo">+</string>
-    <string name="year">Ano</string>
-    <string name="month">Mês</string>
+    <string name="yearAndMonth">Ano/Mês</string>
     <string name="category">Categoria</string>
-    <string name="value">Valor</string>
-    <string name="name">Nome</string>
-    <string name="description">Descrição</string>
+    <string name="value">Valor:</string>
+    <string name="name">Nome:</string>
+    <string name="description">Descrição:</string>
+    <string name="receipt">Ganho</string>
+    <string name="spent">Gasto</string>
 
 </resources>

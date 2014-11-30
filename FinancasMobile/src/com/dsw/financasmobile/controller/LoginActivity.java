@@ -63,7 +63,6 @@ public class LoginActivity extends ActionBarActivity {
 								"Login efetuado com sucesso!", Toast.LENGTH_LONG)
 								.show();
 						startActivity(new Intent(LoginActivity.this, YearActivity.class));
-						finish();
 					} else 
 						Toast.makeText(LoginActivity.this,
 								"Usuário não cadastrado, por favor, realize o cadastro!", Toast.LENGTH_LONG)
